@@ -182,7 +182,7 @@ Value | Alias
 
 Specifies the largest(max) size of the image to be output.<br/>
 It is based on a larger value, regardless of the horizontal and vertical size of the image.<br/>
-For example, if the value of `maxSize` is` 1200`, to ouput  `1200x720px` image from `2500x1500px` image Or to output `720x1200px` image from `1500x2500px` image.
+For example, if the value of `maxSize` is `1200`, to ouput `1200x720px` image from `2500x1500px` image Or to output `720x1200px` image from `1500x2500px` image.
 
 #### Please Notes!
 
@@ -207,7 +207,7 @@ imazip({
   maxSize: 3000,
   src: 'heropy.jpg'
 })
-// Output: 1920x1600px image!
+// Output: 3000x2500px image!
 ```
 
 ### thumbnail

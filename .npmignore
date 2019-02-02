@@ -1,11 +1,12 @@
 **/.*
 *.iml
-coverage/
+.idea
+.cache
+.tscache
+.DS_Store
+test/
 examples/
 node_modules/
-typings/
-sandbox/
-test/
 bower.json
 CODE_OF_CONDUCT.md
 COLLABORATOR_GUIDE.md

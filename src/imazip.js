@@ -1,23 +1,14 @@
 import utils from './utils';
-require('es6-promise').polyfill();
+import es6Promise from 'es6-promise'
+import {
+  defaults,
+  defaultsForThumb
+} from './defaults'
 
+es6Promise.polyfill()
 
-const _defaults = {
-  width: null,  // Number
-  height: null,  // Number
-  src: '',  // String
-  quality: .9,  // Number
-  format: 'image/png',  // String
-  maxSize: 1920,  // Number
-  thumbnail: null,
-  // thumbnail: {
-  //   width: null,
-  //   height: null,
-  //   maxSize: 200,
-  //   quality: .9
-  // }
-};
 let _opts,
+  _optsForThumb,
   _img;
 
 function _imageListener(resolve, reject) {
@@ -52,7 +43,6 @@ function _checkMimeType() {
 }
 
 function _makeCopyImage(args) {
-  console.log(args);
   const {
     width,
     height,
@@ -78,7 +68,7 @@ function _compressImage(resolve, reject, event, isError) {
 
   const origin = _makeCopyImage(_opts);
   const thumbnail = _opts.thumbnail
-    ? _makeCopyImage(_opts.thumbnail)
+    ? _makeCopyImage(_optsForThumb)
     : null;
 
   resolve({
@@ -88,7 +78,8 @@ function _compressImage(resolve, reject, event, isError) {
 }
 
 function imazip(options) {
-  _opts = Object.assign({}, _defaults, options);
+  _opts = Object.assign({}, defaults, options);
+  _optsForThumb = Object.assign({}, defaultsForThumb, options.thumbnail);
   _img = document.createElement('img');
   _img.src = options.src;
 

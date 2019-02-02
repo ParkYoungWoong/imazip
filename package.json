@@ -1,7 +1,25 @@
 {
   "name": "imazip",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "JavaScript module that compresses images for the front end.",
+  "keywords": [
+    "imazip",
+    "imazip.js",
+    "image",
+    "image resize",
+    "image compression",
+    "compress image",
+    "for front-end",
+    "javascript",
+    "web"
+  ],
+  "author": "Heropy <thesecon@gmail.com> (https://heropy.blog)",
+  "homepage": "https://github.com/ParkYoungWoong/imazip",
+  "bugs": {
+    "url": "https://github.com/ParkYoungWoong/imazip/issues",
+    "email": "thesecon@gmail.com"
+  },
+  "license": "MIT",
   "main": "dist/imazip.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,31 +27,21 @@
     "build": "webpack --mode production",
     "example": "parcel example/index.html"
   },
-  "keywords": [
-    "imazip",
-    "image",
-    "image resize",
-    "image compression",
-    "compress image",
-    "for front end"
-  ],
-  "author": "Heropy <thesecon@gmail.com> (https://heropy.blog)",
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-async-generator-functions": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "es6-promise": "^4.2.5",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "@babel/runtime": "^7.2.0",
-    "axios": "^0.18.0",
-    "es6-promise": "^4.2.5"
+    "@babel/runtime": "^7.2.0"
   }
 }

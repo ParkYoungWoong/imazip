@@ -3,6 +3,7 @@ module.exports = {
   entry: __dirname + '/src/imazip.js',
   output: {
     path: __dirname + '/dist',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     filename: 'imazip.min.js'
   },

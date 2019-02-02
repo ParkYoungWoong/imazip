@@ -1,7 +1,7 @@
 # Imazip
 
-Imazip is JavaScript module that compresses images for the front end.
-Imazip can quickly create a thumbnail image.
+Imazip is JavaScript module that compresses images for the front end.<br/>
+Imazip can quickly create a thumbnail image.<br/>
 It is very simple!
 
 ## Installation
@@ -101,8 +101,8 @@ function getImage() {
 - Type: `Number`,
 - Default: `null`
 
-The width value of the image to be output.
-Because The aspect ratio is automatically adjusted, It is recommended to enter only one value either `width` or `height`.
+The width value of the image to be output.<br/>
+Because The aspect ratio is automatically adjusted, It is recommended to enter only one value either `width` or `height`.<br/>
 If neither `width` nor `height` is entered, the original size is output.
 
 ### height
@@ -110,8 +110,8 @@ If neither `width` nor `height` is entered, the original size is output.
 - Type: `Number`,
 - Default: `null`
 
-The height value of the image to be output.
-Because The aspect ratio is automatically adjusted, It is recommended to enter only one value either `width` or `height`.
+The height value of the image to be output.<br/>
+Because The aspect ratio is automatically adjusted, It is recommended to enter only one value either `width` or `height`.<br/>
 If neither `width` nor `height` is entered, the original size is output.
 
 ### src
@@ -120,7 +120,7 @@ If neither `width` nor `height` is entered, the original size is output.
 - Default: `""`,
 - Required!
 
-HTML image format supported by `<img>` element.
+HTML image format supported by `<img>` element.<br/>
 [Information about what image formats the browsers support.](https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support)
 
 ### quality
@@ -135,7 +135,7 @@ A Number between 0 and 1 indicating the image quality to use for image formats t
 - Type: `String`,
 - Default: `image/jpeg`
 
-The mime type of the output image such as `image/png` and `image/jpeg`.
+The mime type of the output image such as `image/png` and `image/jpeg`.<br/>
 The following 3 formats are supported.
 
 Value | Alias
@@ -149,8 +149,8 @@ Value | Alias
 - Type: `Number`,
 - Default: `1920`
 
-Specifies the largest(max) size of the image to be output.
-It is based on a larger value, regardless of the horizontal and vertical size of the image.
+Specifies the largest(max) size of the image to be output.<br/>
+It is based on a larger value, regardless of the horizontal and vertical size of the image.<br/>
 For example, if the value of `maxSize` is` 1200`, to ouput  '1200x720'px image from '2500x1500'px image Or to output `720x1200`px image from `1500x2500`px image.
 
 ### thumbnail
@@ -158,8 +158,8 @@ For example, if the value of `maxSize` is` 1200`, to ouput  '1200x720'px image f
 - Type: `Object`,
 - Default: `null`
 
-Imazip can process a single image while simultaneously creating a thumbnail image of that image.
-This is useful for distinguishing between image to be saved and image to be displayed.
+Imazip can process a single image while simultaneously creating a thumbnail image of that image.<br/>
+This is useful for distinguishing between image to be saved and image to be displayed.<br/>
 The options for the thumbnail image have the same meaning as above.
 
 ### thumbnail.width
@@ -181,3 +181,9 @@ The options for the thumbnail image have the same meaning as above.
 
 - Type: `Number`,
 - Default: `0.8`
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT) © [Heropy](https://heropy.blog)
+
+[⬆ to top](#user-content-imazip)

@@ -12,6 +12,24 @@ npm install imazip
 
 ## How to use
 
+### Simple to use
+
+```js
+import imazip from 'imazip'
+// const imazip = require('imazip')
+
+const theImage = document.getElementById('image')
+
+imazip({
+  src: './heropy.png',
+  format: 'png',
+  quality: .7
+})
+  .then(image => {
+    theImage.src = image.origin
+  })
+```
+
 ### When using a FileReader
 
 ```html
@@ -21,7 +39,6 @@ npm install imazip
 
 ```js
 import imazip from 'imazip'
-// const imazip = require('imazip')
 
 function onChange(e) {
   const files = e.target.files || e.dataTransfer.files
@@ -94,6 +111,20 @@ function getImage() {
 }
 ```
 
+### async/await
+
+Because it return Promise, you can use `async`/`await`.
+
+```js
+async function asyncFunction() {
+  const image = await imazip({
+    src: './heropy.png',
+    format: 'png'
+  })
+  someImage.src = image.origin
+}
+```
+
 ## Options
 
 ### width
@@ -151,7 +182,33 @@ Value | Alias
 
 Specifies the largest(max) size of the image to be output.<br/>
 It is based on a larger value, regardless of the horizontal and vertical size of the image.<br/>
-For example, if the value of `maxSize` is` 1200`, to ouput  '1200x720'px image from '2500x1500'px image Or to output `720x1200`px image from `1500x2500`px image.
+For example, if the value of `maxSize` is` 1200`, to ouput  `1200x720px` image from `2500x1500px` image Or to output `720x1200px` image from `1500x2500px` image.
+
+#### Please Notes!
+
+`maxSize` takes precedence over `width` and `height`.
+
+```js
+imazip({
+  width: 3000,
+  height: 2500,  // The default value of the maxSize is '1920px'.
+  // maxSize: 1920,
+  src: 'heropy.jpg'
+})
+// Output: 1920x1600px image!
+```
+
+If you want to create the desired size, you have to set the value of `maxSize`.
+
+```js
+imazip({
+  width: 3000,
+  height: 2500,
+  maxSize: 3000,
+  src: 'heropy.jpg'
+})
+// Output: 1920x1600px image!
+```
 
 ### thumbnail
 
@@ -161,6 +218,29 @@ For example, if the value of `maxSize` is` 1200`, to ouput  '1200x720'px image f
 Imazip can process a single image while simultaneously creating a thumbnail image of that image.<br/>
 This is useful for distinguishing between image to be saved and image to be displayed.<br/>
 The options for the thumbnail image have the same meaning as above.
+
+To create a thumbnail with default options, enter an empty object.
+
+```js
+imazip({
+  height: 700,
+  src: 'heropy.jpg',  // The default value of the format is 'image/jpeg'.
+  // format:  'image/jpeg',
+  quality: .7,
+  thumbnail: {}
+  /** 
+  * The value of an empty object in the Thumbnail property is the same as:
+  thumbnail: {
+    width: null,
+    height: null,
+    maxSize: 200,
+    quality: .7
+    // src: 'heropy.jpg'
+    // format: 'image/jpeg' 
+  }
+  **/
+})
+```
 
 ### thumbnail.width
 

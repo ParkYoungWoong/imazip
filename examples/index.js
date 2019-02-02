@@ -19,12 +19,25 @@ new Vue({
       const reader = new FileReader()
       if (files && files.length > 0) {
         reader.readAsDataURL(files[0])
-        reader.onload = () => {
+        reader.onload = async () => {
           console.log(reader)
           console.log(files[0].type)
           console.log(reader instanceof FileReader)
-          imazip({
-            height: 150,
+          // imazip({
+          //   height: 150,
+          //   src: reader.result,
+          //   format: files[0].type,
+          //   thumbnail: {
+          //     maxSize: 200,
+          //     quality: .7
+          //   }
+          // })
+          //   .then(image => {
+          //     console.log(image)
+          //     this.origin = image.origin
+          //     this.thumbnail = image.thumbnail
+          //   })
+          const image = await imazip({
             src: reader.result,
             format: files[0].type,
             thumbnail: {
@@ -32,11 +45,9 @@ new Vue({
               quality: .7
             }
           })
-            .then(image => {
-              console.log(image)
-              this.origin = image.origin
-              this.thumbnail = image.thumbnail
-            })
+          console.log('async/await')
+          this.origin = image.origin
+          this.thumbnail = image.thumbnail
         }
       }
     },

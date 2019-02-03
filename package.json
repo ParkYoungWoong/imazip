@@ -1,6 +1,6 @@
 {
   "name": "imazip",
-  "version": "0.1.3",
+  "version": "0.2.3",
   "description": "JavaScript module that compresses images for the front end.",
   "keywords": [
     "imazip",

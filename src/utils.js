@@ -52,7 +52,23 @@ function resizeImage(w, h, m) {
   };
 }
 
+function checkMimeType(format) {
+  const mimeTypes = [
+    { alias: 'png', value: 'image/png' },
+    { alias: 'jpg', value: 'image/jpeg' },
+    { alias: 'webp', value: 'image/webp' }
+  ];
+
+  for (let i = 0; i < mimeTypes.length; i++) {
+    if (mimeTypes[i].alias === format || mimeTypes[i].value === format) {
+      return mimeTypes[i].value
+    }
+    return 'image/jpeg'
+  }
+}
+
 export default {
   sizeFilter,
   resizeImage,
+  checkMimeType
 };

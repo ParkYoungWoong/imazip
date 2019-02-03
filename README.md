@@ -244,7 +244,7 @@ imazip({
 
 ### thumbnail.width
 
-Sets the width of the thumbnail to be output.
+Sets the width of the thumbnail to be output.<br/>
 In most cases, it is recommended that you only use `maxSize` without `width`(`height`).
 
 - Type: `Number`,
@@ -252,7 +252,7 @@ In most cases, it is recommended that you only use `maxSize` without `width`(`he
 
 ### thumbnail.height
 
-Sets the height of the thumbnail to be output.
+Sets the height of the thumbnail to be output.<br/>
 In most cases, it is recommended that you only use `maxSize` without `height`(`width`).
 
 - Type: `Number`,
@@ -267,7 +267,7 @@ Specifies the largest(max) size of the thumbnail to be output.
 
 ### thumbnail.quality
 
-A Number between 0 and 1 indicating the image quality to use for image formats that use lossy compression such as `image/jpeg` and `image/webp`.
+A Number between 0 and 1 indicating the image quality to use for image formats that use lossy compression such as `image/jpeg` and `image/webp`.<br/>
 If not specified, it is the same as the quality value already entered above.
 
 - Type: `Number`,
@@ -275,8 +275,8 @@ If not specified, it is the same as the quality value already entered above.
 
 ## filter
 
-Imazip is using [ImageFilters](https://github.com/arahaya/ImageFilters.js) for image filters.
-Thanks to it, you can provide various filters.
+Imazip is using [ImageFilters](https://github.com/arahaya/ImageFilters.js) for image filters.<br/>
+Thanks to it, you can provide various filters.<br/>
 Just add the `name` of the filter you want and the `options`!
 
 - Type: `Object`,
@@ -323,7 +323,7 @@ Add `options` for the selected filter
 - Type: `Array`,
 - Default: `undefined`
 
-### Filters
+### Supportable Filters
 
 Test each filter in the [ImageFilters Demo](http://www.arahaya.com/imagefilters/).
 

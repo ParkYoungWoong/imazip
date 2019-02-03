@@ -12,6 +12,11 @@ const defaults = {
   //   maxSize: 200,
   //   quality: .8
   // }
+  filter: null,
+  // filter: {
+  //   name: '',
+  //   options: {}
+  // }
 };
 const defaultsForThumb = Object.assign({}, defaults, {
   maxSize: 200

@@ -1,4 +1,5 @@
 import utils from './utils';
+import filters from './filters';
 import es6Promise from 'es6-promise';
 import {
   defaults,
@@ -16,7 +17,7 @@ class Imazip {
     this.img.src = options.src;
 
     this.canvas = document.createElement('canvas');
-    this.context = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
 
     this.resolve = null;
     this.reject = null;
@@ -29,6 +30,18 @@ class Imazip {
     this.img.addEventListener('error', event => {
       this._operator(event, true);
     });
+  }
+
+  _ctxFilters() {
+    const name = this.opts.filter.name;
+    const options = this.opts.filter.options;
+    const imgData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+
+    // https://github.com/arahaya/ImageFilters.js
+    // ex) filters.GaussianBlur(imageData, strength);
+    const filtered = filters[name](imgData, ...options);
+
+    this.ctx.putImageData(filtered, 0, 0);
   }
 
   _compressor(options) {
@@ -44,8 +57,11 @@ class Imazip {
     this.canvas.width = adjustedSize.width;
     this.canvas.height = adjustedSize.height;
 
-    this.context
+    this.ctx
       .drawImage(this.img, 0, 0, adjustedSize.width, adjustedSize.height);
+    if (this.opts.filter) {
+      this._ctxFilters();
+    }
 
     return this.canvas.toDataURL(utils.checkMimeType(this.opts.format), quality);
   }

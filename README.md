@@ -226,15 +226,15 @@ imazip({
   height: 700,
   src: 'heropy.jpg',  // The default value of the format is 'image/jpeg'.
   // format:  'image/jpeg',
-  quality: .7,
+  quality: .4,
   thumbnail: {}
   /** 
   * The value of an empty object in the Thumbnail property is the same as:
   thumbnail: {
-    width: null,
-    height: null,
+    width: undefined,
+    height: undefined,
     maxSize: 200,
-    quality: .7
+    quality: .4
     // src: 'heropy.jpg'
     // format: 'image/jpeg' 
   }
@@ -244,23 +244,118 @@ imazip({
 
 ### thumbnail.width
 
+Sets the width of the thumbnail to be output.
+In most cases, it is recommended that you only use `maxSize` without `width`(`height`).
+
 - Type: `Number`,
-- Default: `null`
+- Default: `undefined`
 
 ### thumbnail.height
 
+Sets the height of the thumbnail to be output.
+In most cases, it is recommended that you only use `maxSize` without `height`(`width`).
+
 - Type: `Number`,
-- Default: `null`
+- Default: `undefined`
 
 ### thumbnail.maxSize
+
+Specifies the largest(max) size of the thumbnail to be output.
 
 - Type: `Number`,
 - Default: `200`
 
 ### thumbnail.quality
 
+A Number between 0 and 1 indicating the image quality to use for image formats that use lossy compression such as `image/jpeg` and `image/webp`.
+If not specified, it is the same as the quality value already entered above.
+
 - Type: `Number`,
-- Default: `0.8`
+- Default: `undefined`
+
+## filter
+
+Imazip is using [ImageFilters](https://github.com/arahaya/ImageFilters.js) for image filters.
+Thanks to it, you can provide various filters.
+Just add the `name` of the filter you want and the `options`!
+
+- Type: `Object`,
+- Default: `null`
+
+```js
+// If there is no option, specify only the filter name.
+imazip({
+  src: 'heropy.jpg',
+  filter: {
+    name: 'GrayScale'
+  }
+})
+
+// If there is an option, specify it as an array. 
+imazip({
+  src: 'heropy.jpg',
+  filter: {
+    name: 'Twril',
+    options: [.5, .5, 100, 360, 'Transparent', true]  // centerX, centerY, radius, angle, edge, smooth
+  }
+})
+
+imazip({
+  src: 'heropy.jpg',
+  filter: {
+    name: 'GaussianBlur',
+    options: [4]  // strength
+  }
+})
+```
+
+### name
+
+Select the `name` of the desired filter.
+
+- Type: `String`,
+- Default: `undefined`
+
+### options
+
+Add `options` for the selected filter
+
+- Type: `Array`,
+- Default: `undefined`
+
+### Filters
+
+Test each filter in the [ImageFilters Demo](http://www.arahaya.com/imagefilters/).
+
+Name | Options
+--|--
+Binarize | threshold
+BoxBlur | hRadius, vRadius, quality
+GaussianBlur | strength
+StackBlur | radius
+BrightnessContrastGimp | brightness, contrast
+BrightnessContrastPhotoshop | brightness, contrast
+Channels | channel
+ColorTransformFilter | redMultiplier, greenMultiplier, blueMultiplier, alphaMultiplier, redOffset, greenOffset, blueOffset, alphaOffset
+Desaturate | -
+Dither | levels
+Edge | -
+Emboss | -
+Enrich | -
+Flip | vertical
+Gamma | gamma
+GrayScale | -
+HSLAdjustment | hueDelta, satDelta, lightness
+Invert | -
+Mosaic | blockSize
+Oil | range, levels
+Posterize | levels
+Rescale | scale
+Sepia | -
+Sharpen | factor
+Solarize | -
+Transpose | -
+Twril | centerX, centerY, radius, angle, edge, smooth
 
 ## License
 

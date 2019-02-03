@@ -1,6 +1,6 @@
 {
   "name": "imazip",
-  "version": "0.2.3",
+  "version": "0.2.0",
   "description": "JavaScript module that compresses images for the front end.",
   "keywords": [
     "imazip",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "main": "dist/imazip.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "example": "parcel example/index.html"
@@ -37,6 +37,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "es6-promise": "^4.2.5",
+    "jest": "^24.0.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },

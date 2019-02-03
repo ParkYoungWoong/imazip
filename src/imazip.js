@@ -34,7 +34,9 @@ class Imazip {
 
   _ctxFilters() {
     const name = this.opts.filter.name;
-    const options = this.opts.filter.options;
+    const options = this.opts.filter.options
+      ? this.opts.filter.options
+      : [];
     const imgData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
 
     // https://github.com/arahaya/ImageFilters.js
@@ -91,6 +93,4 @@ class Imazip {
   }
 }
 
-export default function (options) {
-  return new Imazip(options).run()
-};
+export default Imazip;
